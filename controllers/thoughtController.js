@@ -82,7 +82,7 @@ module.exports = {
 
   async updatedThought(req, res) {
     try {
-      const thought = await User.findOneAndUpdate({ _id: req.params.thoughtId }, {$set: req.body}, {new: true, runValidators: true});
+      const thought = await Thought.findOneAndUpdate({ _id: req.params.thoughtId }, {$set: req.body}, {new: true, runValidators: true});
 
       if (!thought) {
         return res.status(404).json({ message: 'No update was made' })

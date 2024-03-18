@@ -11,7 +11,7 @@ module.exports = {
      res.json(users);
     } catch (err) {
       console.log(err);
-      return res.status(500).json(err);
+     res.status(500).json(err);
     }
   },
   // Get a single student
@@ -27,15 +27,14 @@ module.exports = {
       res.json(user);
     } catch (err) {
       console.log(err);
-      return res.status(500).json(err);
+     res.status(500).json(err);
     }
   },
 
   async createUser(req, res) {
-    console.log(req.body);
-
     try {
       const user = await User.create(req.body);
+
       res.json(user);
     } catch (err) {
       res.status(500).json(err);
